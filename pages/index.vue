@@ -7,8 +7,12 @@
       <option value="kapha">kapha</option>
       <option value="vata">vata</option>
     </select>
-    <p v-for="(m,index) in matches" :key="index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
-    <h1> {{ data.vata }} </h1>
+    <section class="results">
+    <h2 v-if="matches.fruit.length > 0">Fruits</h2>
+    <p v-for="(m,index) in matches.fruit" :key="'fruit' +index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
+    <h2 v-if="matches.fruit.length > 0">Vegetables</h2>
+    <p v-for="(m,index) in matches.vegetable" :key="'vegetable' +index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
+    </section>
   </section>
 </template>
 
@@ -20,7 +24,10 @@ export default Vue.extend({
   data() {
     return {
       dosha: "vata" as string,
-      matches: [],
+      matches: {
+        fruit: [],
+        vegetable: [],
+      } as any,
       data: {
         vata: this.$store.state.vata.all as [],
         kapha: this.$store.state.kapha.all as [],
@@ -31,13 +38,21 @@ export default Vue.extend({
   },
   methods: {
     queryChange(e: any) {
+      this.resetData()
       this.queryString = e.target.value.toLowerCase()
 
       if(this.queryString) {
-        this.matches = this.data[this.dosha].filter((i: any) => i.name.includes(this.queryString))
+        let allMatches = this.data[this.dosha].filter((i: any) => i.name.includes(this.queryString))
+        allMatches.forEach((m: any) => {
+          this.matches[m.type].push(m)
+        })
       } else {
-        this.matches = []
+        this.resetData()
       }
+    },
+    resetData() {
+      this.matches.fruit = []
+      this.matches.vegetable = []
     }
   },
 })
@@ -66,14 +81,14 @@ export default Vue.extend({
   }
 
   .vata {
-    background: #cbf2ff;
+    background: #ebfaff;
   }
 
   .kapha {
-    background: #dfffdf;
+    background: #f7fff7;
   }
 
   .pitta {
-    background: #ffdddc;
+    background: #fff7f7;
   }
 </style>
