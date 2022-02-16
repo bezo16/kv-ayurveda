@@ -77,12 +77,48 @@ export const state = () => ({
     {name:'rajčiny(surove)',icon:'',type:'vegetable',favorable:false},
     {name:'okruhlica',icon:'turnip',type:'vegetable',favorable:false},
     {name:'pšenična trava',icon:'wheatgrass',type:'vegetable',favorable:false},
-    {name:'kličky',icon:'sprouts',type:'vegetable',favorable:false},
 
 
     //FAVORABLE
     {name:'asparagus',icon:'asparagus',type:'vegetable',favorable:true},
-    {name:'',icon:'',type:'vegetable',favorable:true},
-  ]
+    {name:'cvikla',icon:'beets',type:'vegetable',favorable:true},
+    {name:'kapusta(varena)',icon:'cabbage',type:'vegetable',favorable:true},
+    {name:'mrkva',icon:'carrots',type:'vegetable',favorable:true},
+    {name:'karfiol',icon:'cauliflower',type:'vegetable',favorable:true},
+    {name:'koriander',icon:'',type:'vegetable',favorable:true},
+    {name:'uharka',icon:'cucumber',type:'vegetable',favorable:true},
+    {name:'biela redkovka',icon:'daikon',type:'vegetable',favorable:true},
+    {name:'fenikel',icon:'fennel',type:'vegetable',favorable:true},
+    {name:'listova zelenina',icon:'leafygreens',type:'vegetable',favorable:true},
+    {name:'listovy šalat',icon:'lettuce',type:'vegetable',favorable:true},
+    {name:'kapusta sitinova',icon:'mustardgreens',type:'vegetable',favorable:true},
+    {name:'čierne olivy',icon:'blackolives',type:'vegetable',favorable:true},
+    {name:'petržlen',icon:'parsley',type:'vegetable',favorable:true},
+    {name:'paštrnak',icon:'parsnip',type:'vegetable',favorable:true},
+    {name:'hrach(varený)',icon:'peas',type:'vegetable',favorable:true},
+    {name:'zemiaky',icon:'potatoes',type:'vegetable',favorable:true},
+    {name:'sladka tekvica',icon:'sweetpumpkin',type:'vegetable',favorable:true},
+    {name:'redkovka(varena)',icon:'radish',type:'vegetable',favorable:true},
+    {name:'kvaka',icon:'rutabaga',type:'vegetable',favorable:true},
+    {name:'špagetova tekvica',icon:'spaghettisquash',type:'vegetable',favorable:true},
+    {name:'špenat(varený)',icon:'spinach',type:'vegetable',favorable:true},
+    {name:'špenat(surový)',icon:'spinach',type:'vegetable',favorable:true},
+    {name:'kličky',icon:'sprouts',type:'vegetable',favorable:true},
+    {name:'letna tekvica',icon:'summersquash',type:'vegetable',favorable:true},
+    {name:'listy okruhlice',icon:'turnip',type:'vegetable',favorable:true},
+    {name:'potočnica lekarska',icon:'watercress',type:'vegetable',favorable:true},
+    {name:'cuketa',icon:'zucchini',type:'vegetable',favorable:true},
+  ],
+
+  descriptions: {
+    fruits: {
+      avoid: 'vačšina sušeneho ovocia',
+      favorable: 'vačšina sladkeho ovocia',
+    },
+    vegetables: {
+      avoid: 'mrazena, sušena, surova zelenina',
+      favorable: 'varena zelenina',
+    },
+  }
 
 })
