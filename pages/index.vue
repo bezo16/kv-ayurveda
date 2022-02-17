@@ -1,18 +1,23 @@
 <template>
   <section class="home" :class="dosha">
-    <h2>ayurveda app</h2>
+
     <input type="text" @input="queryChange">
     <select name="dosha" id="dosha" v-model="dosha">
       <option value="pitta">pitta</option>
       <option value="kapha">kapha</option>
       <option value="vata">vata</option>
     </select>
+
     <section class="results">
-    <h2 v-if="matches.fruit.length > 0">Fruits</h2>
-    <p v-for="(m,index) in matches.fruit" :key="'fruit' +index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
-    <h2 v-if="matches.fruit.length > 0">Vegetables</h2>
-    <p v-for="(m,index) in matches.vegetable" :key="'vegetable' +index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
+      <h2 v-if="matches.fruit.length > 0">Fruits</h2>
+      <p v-if="matches.fruit.length"> pre vatu je nepriazniva {{ descriptions.vata.fruits.avoid }} a priazniva {{ descriptions.vata.fruits.favorable }}</p>
+      <p v-for="(m,index) in matches.fruit" :key="'fruit' +index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
+
+      <h2 v-if="matches.vegetable.length > 0">Vegetables</h2>
+      <p v-if="matches.vegetable.length"> pre vatu je nepriazniva {{ descriptions.vata.vegetables.avoid }} a priazniva {{ descriptions.vata.vegetables.favorable }}</p>
+      <p v-for="(m,index) in matches.vegetable" :key="'vegetable' +index" class="matchpar" :class="{avoid:!m.favorable,favor:m.favorable}"> {{ m.name }}  </p>
     </section>
+
   </section>
 </template>
 
@@ -33,6 +38,11 @@ export default Vue.extend({
         kapha: this.$store.state.kapha.all as [],
         pitta: this.$store.state.pitta.all as [],
       } as any,
+      descriptions: {
+        vata: this.$store.state.vata.descriptions,
+        kapha: this.$store.state.kapha.descriptions,
+        pitta: this.$store.state.pitta.descriptions,
+      } as {},
       queryString: "" as string,
     }
   },

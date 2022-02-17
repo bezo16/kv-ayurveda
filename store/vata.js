@@ -112,7 +112,7 @@ export const state = () => ({
 
   descriptions: {
     fruits: {
-      avoid: 'vačšina sušeneho ovocia',
+      avoid: 'vačšina sušeného ovocia',
       favorable: 'vačšina sladkeho ovocia',
     },
     vegetables: {
